@@ -3,8 +3,9 @@ title: "Untitled"
 author: "ali"
 date: "04/04/2020"
 output:
-  beamer_presentation: default
+  slidy_presentation: default
   powerpoint_presentation: default
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
