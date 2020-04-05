@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://127.0.0.1:4835/ali.Rmd -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[3.4.1];shiny[1.4.0.2]</script>
+<script src="./dzd_files/json2-min.js.téléchargement"></script>
+<script src="./dzd_files/jquery.min.js.téléchargement"></script>
+<link href="./dzd_files/shiny.css" rel="stylesheet">
+<script src="./dzd_files/shiny.min.js.téléchargement"></script>  <script src="./dzd_files/rmd_loader.js.téléchargement"></script>
+  <link href="./dzd_files/rmd_loader.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" type="text/css" href="./dzd_files/bootstrap.min.css"><script src="./dzd_files/bootstrap.min.js.téléchargement"></script><script src="./dzd_files/html5shiv.min.js.téléchargement"></script><script src="./dzd_files/respond.min.js.téléchargement"></script><script src="./dzd_files/tabsets.js.téléchargement"></script><link rel="stylesheet" type="text/css" href="./dzd_files/default.css"><script src="./dzd_files/highlight.js.téléchargement"></script><link rel="stylesheet" type="text/css" href="./dzd_files/selectize.bootstrap3.css"><script src="./dzd_files/selectize.min.js.téléchargement"></script><link rel="stylesheet" type="text/css" href="./dzd_files/ion.rangeSlider.css"><link rel="stylesheet" type="text/css" href="./dzd_files/ion.rangeSlider.skinShiny.css"><script src="./dzd_files/ion.rangeSlider.min.js.téléchargement"></script><script src="./dzd_files/strftime-min.js.téléchargement"></script><link rel="stylesheet" type="text/css" href="./dzd_files/rmd_perf.css"><script src="./dzd_files/rmd_perf.js.téléchargement"></script><meta name="rstudio_origin" content="127.0.0.1:23091"><script src="./dzd_files/rsiframe.js.téléchargement"></script>
+
+
+<meta name="generator" content="pandoc">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+
+
+<meta name="author" content="ali">
+
+<meta name="date" content="2020-05-04">
+
+<title>dzd</title>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+<script type="text/javascript" src="./dzd_files/MathJax.js.téléchargement"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+  <div>
+    <div data-display-if="!output.__reactivedoc__" data-ns-prefix="" style="display: none;">
+      <div id="rmd_loader_wrapper">
+        <div id="rmd_loader" style="">
+          <p>Please wait...</p>
+          <img src="./dzd_files/rmd_loader.gif">
+        </div>
+      </div>
+    </div>
+    <div id="__reactivedoc__" class="shiny-html-output shiny-bound-output">
+
+
+
+
+
+
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="section-header">
+
+
+
+<h1 class="title toc-ignore">dzd</h1>
+<h4 class="author">ali</h4>
+<h4 class="date">05/04/2020</h4>
+
+</div>
+
+
+<p>This R Markdown document is made interactive using Shiny. Unlike the more traditional workflow of creating static reports, you can now create documents that allow your readers to change the assumptions underlying your analysis and see the results immediately.</p>
+<p>To learn more, see <a href="http://rmarkdown.rstudio.com/authoring_shiny.html">Interactive Documents</a>.</p>
+<div id="section-inputs-and-outputs" class="section level2">
+<h2>Inputs and Outputs</h2>
+<p>You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change. This demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny <code>renderPlot</code> function. The <code>selectInput</code> and <code>sliderInput</code> functions create the input widgets used to drive the plot.</p>
+<p></p><div class="shiny-input-panel">
+<div class="shiny-flow-layout">
+<div>
+<div class="form-group shiny-input-container">
+<label class="control-label" for="n_breaks-selectized">Number of bins:</label>
+<div>
+<select id="n_breaks" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="20" selected="selected">20</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div class="item" data-value="20">20</div><input type="text" autocomplete="off" tabindex="" id="n_breaks-selectized" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+<script type="application/json" data-for="n_breaks" data-nonempty="">{}</script>
+</div>
+</div>
+</div>
+<div>
+<div class="form-group shiny-input-container">
+<label class="control-label" for="bw_adjust">Bandwidth adjustment:</label>
+<span class="irs js-irs-0 irs-with-grid"><span class="irs"><span class="irs-line" tabindex="0"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span><span class="irs-min" style="visibility: visible;">0.2</span><span class="irs-max" style="visibility: visible;">2</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single" style="left: 42.1174%;">1</span></span><span class="irs-grid" style="width: 89.4231%; left: 5.18846%;"><span class="irs-grid-pol" style="left: 0%"></span><span class="irs-grid-text js-grid-text-0" style="left: 0%; margin-left: -4.45012%;">0.2</span><span class="irs-grid-pol small" style="left: 7.4074074074074066%"></span><span class="irs-grid-pol small" style="left: 3.7037037037037033%"></span><span class="irs-grid-pol" style="left: 11.11111111111111%"></span><span class="irs-grid-text js-grid-text-1" style="left: 11.1111%; visibility: visible; margin-left: -4.45012%;">0.4</span><span class="irs-grid-pol small" style="left: 18.51851851851852%"></span><span class="irs-grid-pol small" style="left: 14.814814814814813%"></span><span class="irs-grid-pol" style="left: 22.22222222222222%"></span><span class="irs-grid-text js-grid-text-2" style="left: 22.2222%; visibility: visible; margin-left: -4.45012%;">0.6</span><span class="irs-grid-pol small" style="left: 29.629629629629626%"></span><span class="irs-grid-pol small" style="left: 25.925925925925924%"></span><span class="irs-grid-pol" style="left: 33.33333333333333%"></span><span class="irs-grid-text js-grid-text-3" style="left: 33.3333%; visibility: visible; margin-left: -4.45012%;">0.8</span><span class="irs-grid-pol small" style="left: 40.74074074074074%"></span><span class="irs-grid-pol small" style="left: 37.03703703703703%"></span><span class="irs-grid-pol" style="left: 44.44444444444444%"></span><span class="irs-grid-text js-grid-text-4" style="left: 44.4444%; margin-left: -2.64724%;">1</span><span class="irs-grid-pol small" style="left: 51.851851851851855%"></span><span class="irs-grid-pol small" style="left: 48.148148148148145%"></span><span class="irs-grid-pol" style="left: 55.55555555555556%"></span><span class="irs-grid-text js-grid-text-5" style="left: 55.5556%; visibility: visible; margin-left: -4.45012%;">1.2</span><span class="irs-grid-pol small" style="left: 62.962962962962955%"></span><span class="irs-grid-pol small" style="left: 59.25925925925926%"></span><span class="irs-grid-pol" style="left: 66.66666666666666%"></span><span class="irs-grid-text js-grid-text-6" style="left: 66.6667%; visibility: visible; margin-left: -4.45012%;">1.4</span><span class="irs-grid-pol small" style="left: 74.07407407407406%"></span><span class="irs-grid-pol small" style="left: 70.37037037037037%"></span><span class="irs-grid-pol" style="left: 77.77777777777777%"></span><span class="irs-grid-text js-grid-text-7" style="left: 77.7778%; visibility: visible; margin-left: -4.45012%;">1.6</span><span class="irs-grid-pol small" style="left: 85.18518518518518%"></span><span class="irs-grid-pol small" style="left: 81.48148148148148%"></span><span class="irs-grid-pol" style="left: 88.88888888888889%"></span><span class="irs-grid-text js-grid-text-8" style="left: 88.8889%; margin-left: -4.45012%;">1.8</span><span class="irs-grid-pol small" style="left: 96.29629629629629%"></span><span class="irs-grid-pol small" style="left: 92.5925925925926%"></span><span class="irs-grid-pol" style="left: 100%"></span><span class="irs-grid-text js-grid-text-9" style="left: 100%; visibility: visible; margin-left: -2.64724%;">2</span></span><span class="irs-bar" style="left: 5.28846%; width: 39.7436%;"></span><span class="irs-bar-edge"></span><span class="irs-shadow shadow-single" style="display: none;"></span><span class="irs-slider single" style="left: 39.7436%;"></span></span><input class="js-range-slider irs-hidden-input shiny-bound-input" id="bw_adjust" data-min="0.2" data-max="2" data-from="1" data-step="0.2" data-grid="true" data-grid-num="9" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number" tabindex="-1" readonly="">
+</div>
+</div>
+</div>
+</div><div id="out1e82caacea7194aa" class="shiny-plot-output shiny-bound-output" style="width: 100% ; height: 400px"><img src="data:image/png;base64,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" width="910" height="400"></div><p></p>
+</div>
+<div id="section-embedded-application" class="section level2">
+<h2>Embedded Application</h2>
+<p>It’s also possible to embed an entire Shiny application within an R Markdown document using the <code>shinyAppDir</code> function. This example embeds a Shiny application located in another directory:</p>
+<iframe width="100%" height="550" class="shiny-frame" src="./dzd_files/saved_resource.html"></iframe>
+<p>Note the use of the <code>height</code> parameter to determine how much vertical space the embedded application should occupy.</p>
+<p>You can also use the <code>shinyApp</code> function to define an application inline rather then in an external directory.</p>
+<p>In all of R code chunks above the <code>echo = FALSE</code> attribute is used. This is to prevent the R code within the chunk from rendering in the document alongside the Shiny components.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("section-TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+</div>
+  </div>
+
+
+
+</body></html>
